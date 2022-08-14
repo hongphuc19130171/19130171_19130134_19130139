@@ -48,10 +48,9 @@ import { MdbCookiesManagementService } from 'mdb-angular-cookies-management';
 import { MdbStorageManagementService } from 'mdb-angular-storage-management';
 import { MdbOnboardingModule } from 'mdb-angular-onboarding';
 import { LoginComponent } from './login/login.component';
-import {ListChatComponent} from "./list-chat/list-chat.component";
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, ListChatComponent],
+  declarations: [AppComponent, LoginComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
