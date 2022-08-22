@@ -106,6 +106,7 @@ h3 {
   padding: 10px 5px;
   font-size: 15px;
   cursor: pointer;
+  color: black;
 }
 
 #frame #sidepanel #contacts ul li.contact:hover {
@@ -147,6 +148,7 @@ h3 {
   color: #f5f5f5;
   cursor: pointer;
   font-size: 0.85em;
+  border-radius: 25px;
 }
 
 #frame #sidepanel #bottom-bar button:hover {
@@ -276,16 +278,25 @@ h3 {
 }
 
 #frame .content .message-input .wrap {
+  width: 90%;
+  height: 25px;
+  margin: 0 auto;
+  border-radius: 10px;
   position: relative;
 }
 
 #frame .content .message-input .wrap input {
   float: left;
+  width: 85%;
   border: none;
-  width: calc(100% - 50px);
+
   padding: 11px 32px 10px 8px;
   font-size: 0.8em;
   color: #32465a;
+  height: 40px;
+  margin: 0 auto;
+  border-radius: 30px;
+  position: relative;
 }
 
 #frame .content .message-input .wrap button {
@@ -296,6 +307,7 @@ h3 {
   cursor: pointer;
   background: #32465a;
   color: #f5f5f5;
+  border-radius: 35px;
 }
 
 #frame .content .message-input .wrap button:hover {
