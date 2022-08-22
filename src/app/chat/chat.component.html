@@ -35,20 +35,18 @@
   </div>
   <div class="content">
     <div class="contact-profile">
-      <img src="../../img/avt.png" alt=""/>
+      <img src="../../img/user-profile.png" alt=""/>
       <p>{{this.contactName}}</p>
     </div>
     <div class="messages">
       <ul *ngFor="let item of reverseList">
-
         <li class="sent" *ngIf="this.username == item.name">
           <small class="showName"><strong>{{item.name}}</strong> - {{item.createAt}}</small>
-          <img src="../../img/avt-sent.png" alt=""/>
           <p>{{item.mes}}</p>
         </li>
         <li class="replies" *ngIf="this.username != item.name">
           <small class="showName"><strong>{{item.name}}</strong> - {{item.createAt}}</small>
-          <img src="../../img/avt.png" alt=""/>
+          <img src="../../img/user-profile.png" alt=""/>
           <p>{{item.mes}}</p>
         </li>
       </ul>
