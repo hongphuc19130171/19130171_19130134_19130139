@@ -1,7 +1,7 @@
 .bg-container {
   width: 100%;
   height: 100vh;
-  background: #435f7a;
+  background: #eee33d;
   position: relative;
 }
 
@@ -15,7 +15,7 @@ span {
 }
 
 .bg-img {
-  background-image: url("../../img/chat.jpg");
+  background-image: url("../../img/app.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -43,16 +43,16 @@ span {
 }
 
 .submit {
-  background-color: #1363DF;
+  background-color: #eee33d;
   color: white;
-  border-radius: 50px;
+  border-radius: 75px;
   border: none;
   margin-top: 30px;
   text-transform: uppercase;
 }
 
 .submit:hover {
-  background-color: #7C99AC;
+  background-color: #fff667;
   transition: 0.5s;
 }
 
