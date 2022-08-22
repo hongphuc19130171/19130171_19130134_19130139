@@ -1,0 +1,29 @@
+.bg-image {
+  background-image: url("../../img/bg.png");
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+}
+
+.mask-custom {
+  backdrop-filter: blur(6px);
+  background-color: rgba(0, 0, 0, .4);
+}
+
+.btn-action {
+  border: 1px solid #1363DF;
+  color: #1363DF;
+  border-radius: 50px;
+  padding: 10px 28px;
+  width: 150px;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.9);
+
+}
+
+.btn-action:hover {
+  color: white;
+  background: #1363DF;
+  transition: 0.5s;
+  border: 1px solid #1363DF;
+}

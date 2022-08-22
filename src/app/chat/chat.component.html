@@ -1,83 +1,63 @@
-<html>
-<style>
-  body {
-    font:12px arial;
-    color: #222;
-    text-align:center;
-    padding:35px; }
-
-  form, p, span {
-    margin:0;
-    padding:0; }
-
-  input { font:12px arial; }
-
-  a {
-    color:#0000FF;
-    text-decoration:none; }
-
-  a:hover { text-decoration:underline; }
-
-  #wrapper, #loginform {
-    margin:0 auto;
-    padding-bottom:25px;
-    background:#EBF4FB;
-    width:504px;
-    border:1px solid #ACD8F0; }
-
-  #loginform { padding-top:18px; }
-
-  #loginform p { margin: 5px; }
-
-  #chatbox {
-    text-align:left;
-    margin:0 auto;
-    margin-bottom:25px;
-    padding:10px;
-    background:#fff;
-    height:270px;
-    width:430px;
-    border:1px solid #ACD8F0;
-    overflow:auto; }
-
-  #usermsg {
-    width:395px;
-    border:1px solid #ACD8F0; }
-
-  #submit { width: 60px; }
-
-  .error { color: #ff0000; }
-
-  #menu { padding:12.5px 25px 12.5px 25px; }
-
-  .welcome { float:left; }
-  .reply {
-    float: right;
-    padding: 20px 12px 20px 12px;}
-
-  .logout { float:right; }
-
-  .msgln { margin:0 0 2px 0; }
-</style>
-<head>
-  <title>App chat Nhóm 37</title>
-  <link rel="stylesheet" href="chat.component.scss">
-
-</head>
-<div id="wrapper">
-  <div id="menu">
-    <p class="logout"><a id="exit" href="#">Exit Chat</a></p>
-    <div style="clear:both"></div>
+<h3 class="text-center p-3">CHAT APP</h3>
+<div id="frame">
+  <div id="sidepanel">
+    <div id="profile" class="mb-3">
+      <button (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i><span>Logout</span></button>
+      <p><i class="fa fa-user-circle-o mr-2" aria-hidden="true"></i>Welcome: {{this.username}} !</p>
+    </div>
+    <form [formGroup]="reactiveForm">
+      <div id="search">
+        <label><i class="fa fa-search" aria-hidden="true"></i></label>
+        <input type="text" placeholder="Name of room or people" name="searchInput" formControlName="search" required/>
+      </div>
+      <div id="bottom-bar">
+        <button (click)="checkUser()" class="bottom-btn"><i class="fa fa-user-plus fa-fw" aria-hidden="true"></i><span>Add contact</span>
+        </button>
+        <button (click)="createRoom()" class="bottom-btn"><i class="fa fa-plus-circle" aria-hidden="true"></i>
+          <span>Create room</span>
+        </button>
+        <button (click)="joinRoom()" class="bottom-btn"><i class="fa fa-sign-in" aria-hidden="true"></i>
+          <span>Join room</span></button>
+      </div>
+    </form>
+    <div id="contacts">
+      <h4 class="text-center mt-3">Message</h4>
+      <ul>
+        <li class="contact" *ngFor="let item of listUser" (click)="getChat(item.type, item.name)">
+          <p class="name">
+            <i *ngIf="item.type == 1" class="fa fa-users" style="margin-right: 10px"></i>
+            <i *ngIf="item.type == 0" class="fa fa-user" style="margin-right: 10px"></i>
+            {{item.name}}</p>
+          <small class="" style="float: right">{{item.actionTime}}</small>
+        </li>
+      </ul>
+    </div>
   </div>
+  <div class="content">
+    <div class="contact-profile">
+      <img src="../../img/avt.png" alt=""/>
+      <p>{{this.contactName}}</p>
+    </div>
+    <div class="messages">
+      <ul *ngFor="let item of reverseList">
 
-  <div id="chatbox">
-    <p class="welcome">Welcome
-      <div class="reply">Hi, How are you</div>
+        <li class="sent" *ngIf="this.username == item.name">
+          <small class="showName"><strong>{{item.name}}</strong> - {{item.createAt}}</small>
+          <img src="../../img/avt-sent.png" alt=""/>
+          <p>{{item.mes}}</p>
+        </li>
+        <li class="replies" *ngIf="this.username != item.name">
+          <small class="showName"><strong>{{item.name}}</strong> - {{item.createAt}}</small>
+          <img src="../../img/avt.png" alt=""/>
+          <p>{{item.mes}}</p>
+        </li>
+      </ul>
+    </div>
+    <form [formGroup]="reactiveForm" class="message-input">
+      <div class="wrap">
+        <input type="text" placeholder="Write your message..." formControlName="input_message"/>
+        <button (click)="chat()" class="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+      </div>
+    </form>
   </div>
-
-  <form name="message" action="">
-    <input name="usermsg" type="text" id="usermsg" size="63" />
-    <button name="submitmsg" type="submit"  id="submitmsg" value="Send">Gửi</BUTTON>
-  </form>
 </div>
-</html>
